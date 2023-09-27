@@ -24,7 +24,7 @@ dpdk:
 		-I ../src -I ../third_party/asio/include -I $(RTE_SDK)/build/install/include \
 		-L ../build $(LIBS) \
 		-Wl,--no-whole-archive \
-		-lnuma -ldl -libverbs -lmlx4 -lmlx5 \
+		-lnuma -ldl -libverbs -lmlx5 \
 		$(LDFLAGS_STATIC)
 
 	g++ -g -std=c++11 -o client client.cc \
@@ -33,7 +33,7 @@ dpdk:
 		-I ../src -I ../third_party/asio/include -I $(RTE_SDK)/build/install/include \
 		-L ../build $(LIBS) \
 		-Wl,--no-whole-archive \
-		-lnuma -ldl -libverbs -lmlx4 -lmlx5 \
+		-lnuma -ldl -libverbs -lmlx5 \
 		$(LDFLAGS_STATIC)
 clean:
 	rm server client

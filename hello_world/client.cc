@@ -15,7 +15,9 @@ int main() {
 
   std::string server_uri = kServerHostname + ":" + std::to_string(kUDPPort);
   int session_num = rpc->create_session(server_uri, 0);
+  printf("Session_num: %d\n", session_num);
 
+  printf("Try to connect to the server\n");
   while (!rpc->is_connected(session_num)) rpc->run_event_loop_once();
 
   printf("DEBUG: pass the connection\n");

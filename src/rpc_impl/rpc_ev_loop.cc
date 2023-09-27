@@ -16,6 +16,7 @@ void Rpc<TTr>::run_event_loop_do_one_st() {
   process_comps_st();  // RX
 
   process_credit_stall_queue_st();    // TX
+
   if (kCcPacing) process_wheel_st();  // TX
 
   // Drain all packets

@@ -18,6 +18,8 @@ int main() {
 
   while (!rpc->is_connected(session_num)) rpc->run_event_loop_once();
 
+  printf("DEBUG: pass the connection\n");
+
   req = rpc->alloc_msg_buffer_or_die(kMsgSize);
   resp = rpc->alloc_msg_buffer_or_die(kMsgSize);
 

@@ -8,7 +8,7 @@ namespace erpc {
 
 template <class TTr>
 void Rpc<TTr>::handle_sm_rx_st() {
-  printf("Enter small pkt handler\n");
+  // printf("DEBUG: Enter small pkt handler\n");
   assert(in_dispatch());
   MtQueue<SmWorkItem> &queue = nexus_hook_.sm_rx_queue_;
 

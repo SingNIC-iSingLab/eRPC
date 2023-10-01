@@ -16,5 +16,6 @@ int main() {
   nexus.register_req_func(kReqType, req_handler);
 
   rpc = new erpc::Rpc<erpc::CTransport>(&nexus, nullptr, 0, nullptr);
+  printf("Server is started.\n");
   rpc->run_event_loop(100000);
 }

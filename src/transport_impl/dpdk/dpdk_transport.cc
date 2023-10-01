@@ -8,6 +8,9 @@
 #include "util/huge_alloc.h"
 #include "util/numautils.h"
 
+#include <rte_ethdev.h>
+
+
 namespace erpc {
 
 constexpr size_t DpdkTransport::kMaxDataPerPkt;
@@ -55,6 +58,12 @@ DpdkTransport::DpdkTransport(uint16_t sm_udp_port, uint8_t rpc_id,
           static_cast<int>(sizeof(rte_argv) / sizeof(rte_argv[0])) - 1;
       int ret = rte_eal_init(rte_argc, const_cast<char **>(rte_argv));
       rt_assert(ret >= 0, "Failed to initialize DPDK");
+
+      // struct rte_ether_addr eth_addr;
+      // struct rte_eth_dev_info dev_info;
+      // ret = rte_eth_dev_info_get(phy_port, &dev_info);
+      // ret = rte_eth_macaddr_get(phy_port, &eth_addr);
+      // printf("MAC address: " RTE_ETHER_ADDR_PRT_FMT "\n\n", RTE_ETHER_ADDR_BYTES(&eth_addr));
 
       // rte_eal_init() sets process core affinity to only core #0, undo this
       clear_affinity_for_process();

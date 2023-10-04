@@ -1,4 +1,4 @@
---test_ms 200000000
+--test_ms 10000
 --sm_verbose 1
 --resp_size 8
 --num_processes 2

@@ -220,7 +220,7 @@ int main(int argc, char **argv) {
   auto t = std::thread(
       FLAGS_process_id < FLAGS_num_server_processes ? server_func : client_func,
       &nexus);
-
+  printf("NUMA node: %zu\n", FLAGS_numa_node);
   const size_t num_socket_cores =
       erpc::get_lcores_for_numa_node(FLAGS_numa_node).size();
   const size_t affinity_core = FLAGS_process_id % num_socket_cores;

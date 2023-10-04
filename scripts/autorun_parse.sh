@@ -22,7 +22,7 @@ function get_from_config() {
 }
 
 # Variables set by the human user
-autorun_erpc_home="$HOME/eRPC"
+autorun_erpc_home="$HOME/git_repos/eRPC"
 
 # Check autorun_app
 assert_file_exists $autorun_erpc_home/scripts/autorun_app_file

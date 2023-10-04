@@ -3,7 +3,7 @@
 source $(dirname $0)/autorun_parse.sh
 
 for i in `seq 1 $autorun_num_processes`; do
-  name=${autorun_name_list[$i]}
+  	name=${autorun_name_list[$i]}
 	echo "Executing check-nics.sh on $name"
 	ssh -oStrictHostKeyChecking=no $name "ps -afx | grep main"
 

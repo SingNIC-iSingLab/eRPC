@@ -273,7 +273,9 @@ void connect_sessions(AppContext &c) {
 }
 
 void print_stats(AppContext &c) {
-  double seconds = erpc::sec_since(c.tput_t0);
+  struct timespec current_t_;
+  clock_gettime(CLOCK_REALTIME, &current_t_);
+  double seconds = current_t_.tv_sec - c.tput_t0.tv_sec;
 
   // Min/max responses for a concurrent batch, to check for stagnated batches
   size_t max_resps = 0, min_resps = SIZE_MAX;
